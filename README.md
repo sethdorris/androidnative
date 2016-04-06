@@ -1,3 +1,8 @@
+Learning Android Development
+========
+
+This is my repository for housing the source code for the Udacity course on learning Android Development Fundamentals.
+
 Sunshine
 ========
 
