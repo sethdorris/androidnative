@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -106,6 +108,7 @@ public class MainActivity extends ActionBarActivity {
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
+        private ArrayAdapter<String> mForecastAdapter;
 
         public PlaceholderFragment() {
         }
@@ -128,6 +131,18 @@ public class MainActivity extends ActionBarActivity {
             ArrayList<String> weekForecast = new ArrayList<String>(
                     Arrays.asList(weather)
             );
+
+            mForecastAdapter = new ArrayAdapter<String>(
+                    getActivity(),
+                    R.layout.list_item_forecast,
+                    R.id.list_item_forecast_textview,
+                    weekForecast
+            );
+
+            ListView myListView = (ListView) rootView.findViewById(
+                    R.id.listview_forecast);
+            myListView.setAdapter(mForecastAdapter);
+
 
 
             return rootView;
